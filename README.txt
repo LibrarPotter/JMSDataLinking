@@ -1,7 +1,12 @@
-# This is the readme file for my project
+This is the readme file for the programs and general procedure used in the Journal of Molecular Spectroscopy article "Are your spectroscopic data being used?", by Iouli E. Gordon, Megan R. Potterbusch, Daina Bouquin, Christopher C. Erdmann,  Jonas S. Wilzewski and Laurence S. Rothman.
+The clean data created by these programs are shown in Figures 3 and 4 of this article. Papers published in the Journal of Molecular Spectroscopy in Year1-Year2 were analysed for: 1. Amount of working and broken web links provided in the articles., 2. How many of these links point to curated archives, and 3. How many times each article was cited based on the statistics in the Astrophysical Data System (ADS).
+Below we describe the steps of the procedure and the programs provided in this repository.
 
+Before starting any data cleaning or processing, we received full-text, raw-XML copies of the Journal of Molecular Spectroscopy.
 
-Steps taken to clean up the URLs in order to run link_checker script:
+Using extract.py we removed the XML tags from the full-text and then used regular expressions to extract the links and the pre link text from the full-text articles.  The format expected by the extract.py program is MainFolder->SubFoldersByVolume->Articles.xml
+
+Steps taken to clean up the URLs in order to run link_checker.ipynb:
 - Added a duplicate column for "clean_link_text_not_article", which includes only the non-self-referential links on which all following actions were taken to preserve the original information in "link_text"
 - Split URLs on "[" and "]"
 - Removed the trailing symbols: ".", ",", "<", ">", "(", ")", ";", and "/"
@@ -19,7 +24,7 @@ for 301, 302, and 303:
 403, 404, 502, and 503 are considered bad in general
 	2 of the 503 links go to actual science direct articles and may be OK.
 
-check_new_location_for_300
+check_new_location_for_300.ipynb
 - Eventually, this should be combined with the original link checker, because there is a great deal of duplication between the two, but for now this should be run after link_checker.pynb
 
 
@@ -61,7 +66,7 @@ Workflow:
 			BROKEN
 
 
-Run get_citation_count_data_ADS_API on data:
+Run get_citation_count_data_ADS_API.ipynb on data:
 Open csv (hardcoded location) with a column of DOIs |
 takes DOIs from dataframe |
 Uses ADS API to search by DOI and return citation_count and pubdate  (publication date) |
