@@ -92,6 +92,4 @@ Used the GREL filter:
 	to create column "trustedRepo", which contains true or false info.  True == Ohio State or if it is a link to a doi.  If it's a doi that means that it is in a trusted repo, because it has to be compliant with DOI requirements. (Most of the DOIs point to Elsevier.) 
 	To use regular expresions to find strings in a column, follow the example above. All GREL REs start and end with a backslash, /.  The pipe, |, works as the boolean AND. the dot, ., and the astrix, *, are vital to the RE.  
 
-
-See code in R for plots created
-
+Questions? Contact me at mpotterbusch@gmail.com
